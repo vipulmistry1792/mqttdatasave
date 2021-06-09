@@ -6,8 +6,8 @@ password:"Velox@123",
 clean:true
 }
 
-var client  = mqtt.connect([{ host: 'localhost', port: 1884 }])
-//var client  = mqtt.connect('mqtt://54.186.144.108:1884')
+//var client  = mqtt.connect([{ host: 'localhost', port: 1884 }])
+var client  = mqtt.connect('mqtt://54.186.144.108:1884')
  const db = require('./mo/index');
  const Datas  = db.Datas;
 db.mongoose
@@ -32,7 +32,7 @@ console.log("connection");
   client.subscribe('v1/devices/s71200', function (err) {
     if (!err) {
     }
-	//console.log("Error")
+	console.log("Error"+err)
   })
 })
 

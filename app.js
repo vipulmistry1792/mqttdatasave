@@ -1,12 +1,20 @@
 var mqtt = require('mqtt')
-options={
-clientId:"mqttjs01",
-username:"velox",
-password:"Velox@123",
-clean:true
-}
-
-var client  = mqtt.connect([{ host: 'localhost', port: 1884 }])
+var options = {
+  port: 1884,
+  host: 'mqtt://54.186.144.108',
+  clientId: 'mqttjs_' + Math.random().toString(16).substr(2, 8),
+  username: 'velox',
+  password: 'Velox@123',
+  keepalive: 60,
+  reconnectPeriod: 1000,
+  protocolId: 'MQIsdp',
+  protocolVersion: 3,
+  clean: true,
+  encoding: 'utf8'
+};
+var client = mqtt.connect('mqtt://54.186.144.108', options);
+//var client = mqtt.connect('mqtt://m11.cloudmqtt.com', options);
+//var client  = mqtt.connect([{ host: 'localhost', port: 1884 }])
 //var client  = mqtt.connect('mqtt://54.186.144.108:1884')
  const db = require('./mo/index');
  const Datas  = db.Datas;
@@ -32,7 +40,7 @@ console.log("connection");
   client.subscribe('v1/devices/s71200', function (err) {
     if (!err) {
     }
-	//console.log("Error")
+	console.log("Error")
   })
 })
 

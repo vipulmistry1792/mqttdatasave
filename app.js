@@ -24,7 +24,7 @@ db.mongoose
   });
  const express = require('express')
  const app = express()
- const port = process.env.PORT || 3000;
+ const port =  3000;
  
  app.get('/', (req, res) => res.send('Hello World!'))
 client.on('connect', function () {
@@ -40,6 +40,7 @@ client.on('message', function (topic, message) {
 const dats = new Datas({
         Data     : message.toString()
 });
+console.log(message.toString());
 	//Save The Serial TagName
 	dats
 	.save(dats)
@@ -55,4 +56,4 @@ const dats = new Datas({
   console.log(message.toString())
   client.end()
 })
- app.listen(port, () => console.log(`Example app listening on port port!`))
+ app.listen(port, () => console.log(`Example app listening on port ${port}!`))

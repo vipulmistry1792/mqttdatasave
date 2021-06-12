@@ -34,13 +34,19 @@ db.mongoose
  const app = express()
  const port =  3000;
  
- app.get('/', (req, res) => res.send('Hello World!'))
+ app.get('/', (req, res) {
+  client.on('message', function (topic, message) {
+    const message1=message;
+  
+  })
+  res.json(JSON.stringify(message1))
+ })
 client.on('connect', function () {
-console.log("connection");
+
   client.subscribe('v1/devices/s71200', function (err) {
     if (!err) {
+
     }
-	console.log("Error")
   })
 })
 

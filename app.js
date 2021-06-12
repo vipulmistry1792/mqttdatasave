@@ -15,7 +15,7 @@ var options = {
 var client = mqtt.connect('mqtt://54.186.144.108', options);
 //var client = mqtt.connect('mqtt://m11.cloudmqtt.com', options);
 //var client  = mqtt.connect([{ host: 'localhost', port: 1884 }])
-//var client  = mqtt.connect('mqtt://54.186.144.108:1884')
+//var client  = mqtt.connect('mqtt://54.186.144.108:1884'
  const db = require('./mo/index');
  const Datas  = db.Datas;
 db.mongoose
@@ -47,7 +47,7 @@ client.on('connect', function () {
     if (!err) {
 
     }
-  })
+
 })
 
 client.on('message', function (topic, message) {
